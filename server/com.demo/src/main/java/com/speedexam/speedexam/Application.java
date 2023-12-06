@@ -1,4 +1,4 @@
-package com.speedexam.speedex;
+package com.speedexam.speedexam;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

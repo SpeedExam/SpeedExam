@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32286fe3-614d-4d3d-bd16-c03921e30db7" name="Changes" comment="" />
+    <list default="true" id="32286fe3-614d-4d3d-bd16-c03921e30db7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/com.demo/src/main/java/com/speedexam/speedex/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/com.demo/src/main/java/com/speedexam/speedexam/DemoApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/com.demo/src/main/java/com/speedexam/speedex/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/com.demo/src/main/java/com/speedexam/speedexam/HelloController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,9 +23,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2ZAioBVzwtYliZI6skPAqphhQcT" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -36,7 +40,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "dev",
     "last_opened_file_path": "/Users/Bilal/Projects/SpeedExam",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -51,6 +55,8 @@
 }]]></component>
   <component name="RunManager">
     <configuration name="DemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-20" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="SpeedExam" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.speedexam.speedexam.DemoApplication" />
@@ -68,6 +74,7 @@
       <option name="presentableId" value="Default" />
       <updated>1701871456671</updated>
       <workItem from="1701871458190" duration="1251000" />
+      <workItem from="1701886596556" duration="1235000" />
     </task>
     <servers />
   </component>
