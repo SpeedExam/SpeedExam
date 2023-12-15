@@ -8,14 +8,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="demo-security-final" />
+        <module name="SpeedExam" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="speedex" target="17" />
+      <module name="speedexam-exam" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="SpeedExam" options="-parameters" />
       <module name="demo-security-final" options="-parameters" />
       <module name="speedex" options="-parameters" />
     </option>
