@@ -1,4 +1,4 @@
-package com.ensat.speedexam.AuthConfigurations;
+package com.ensat.speedexam.Services.Auth;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

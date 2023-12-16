@@ -7,8 +7,10 @@ import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.authentication.logout.LogoutHandler;
 
 import java.util.List;
 
@@ -22,13 +24,16 @@ public class AppSecurityConfig {
     private final JwtAuthenticationFilter jwtAuthFilter;
     private final AuthenticationProvider authenticationProvider;
     private final  List<String> WHITE_LIST ; // Will contain endpoints that dont require authentication
+    private final LogoutHandler logoutHandler;
 
     // At startup spring security looks for a bean of type SecurityFilterChain
     @Bean public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
+
         http
                 .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(req -> req.requestMatchers("/auth/**")
+                .authorizeHttpRequests(req -> req
+                        .requestMatchers("/auth/**")
                         .permitAll()
                         .requestMatchers("/error")
                         .permitAll()
@@ -40,7 +45,14 @@ public class AppSecurityConfig {
                 // Provides the mechanism for the Authentication Manager to validate user credentials.
                 .authenticationProvider(authenticationProvider)
                 // Prioritizing the processing of JWT-based authentication over form-based authentication
-                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
+                .logout(logout ->
+                        logout.logoutUrl("/logout")
+                                .addLogoutHandler(logoutHandler)
+                                .logoutSuccessHandler(
+                                        (request, response, authentication) -> SecurityContextHolder.clearContext())
+                );
+
                 return http.build();
 
     }

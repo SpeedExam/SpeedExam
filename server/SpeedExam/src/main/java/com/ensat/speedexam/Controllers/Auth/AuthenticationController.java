@@ -1,10 +1,11 @@
-package com.ensat.speedexam.AuthConfigurations;
+package com.ensat.speedexam.Controllers.Auth;
 
 
 
 import com.ensat.speedexam.AuthConfigurations.AuthEntites.AuthenticationResponse;
 import com.ensat.speedexam.AuthConfigurations.AuthEntites.LogInRequest;
 import com.ensat.speedexam.AuthConfigurations.AuthEntites.SignUpRequest;
+import com.ensat.speedexam.Services.Auth.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

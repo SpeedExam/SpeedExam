@@ -1,6 +1,8 @@
 package com.ensat.speedexam.AuthConfigurations;
 
 
+import com.ensat.speedexam.Repositories.Auth.TokenRepository;
+import com.ensat.speedexam.Services.Auth.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -24,6 +26,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtService jwtService;
     private final UserDetailsService userDetailsService; // a Bean in AppConfig
+    private final TokenRepository tokenRepository;
     @Override
     protected void doFilterInternal(
             @NonNull HttpServletRequest request,
@@ -35,6 +38,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         final String userEmail;
         final String jwt;
 
+        logger.info("FILTER BEGIN !!! ");
         // Skip authentication when accessing a Login or a Signup form
         if (request.getServletPath().contains("/auth")) {
             filterChain.doFilter(request, response);
@@ -54,8 +58,13 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         if (userEmail != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = userDetailsService.loadUserByUsername(userEmail);
 
-            // Checking the email claim against the stored email + Expiration date
-            if (jwtService.isTokenValid(jwt, userDetails)) {
+            // Checking if the token has been previously revoked / used
+            var dbTokenValid = tokenRepository.findByToken(jwt)
+                    .map(t -> !t.isRevoked())
+                    .orElse(false);
+
+            /* Checking the email claim against the stored email + Expiration date */
+            if (jwtService.isTokenValid(jwt, userDetails) && dbTokenValid) {
 
                 // Authentication object compatible with userDetails
                 UsernamePasswordAuthenticationToken authToken =
@@ -73,6 +82,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 /* Adding the Authentication Object to SecurityContextHolder
                 to marque user as authenticated  */
                 SecurityContextHolder.getContext().setAuthentication(authToken);
+            }else {
+                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             }
         }
         filterChain.doFilter(request,response);
