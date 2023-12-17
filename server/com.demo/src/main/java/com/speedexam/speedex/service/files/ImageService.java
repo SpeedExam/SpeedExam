@@ -1,7 +1,7 @@
-package com.speedexam.speedex.service;
+package com.speedexam.speedex.service.files;
 
-import com.speedexam.speedex.model.Image;
-import com.speedexam.speedex.repository.ImageReposiroty;
+import com.speedexam.speedex.model.files.Image;
+import com.speedexam.speedex.repository.files.ImageReposiroty;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;

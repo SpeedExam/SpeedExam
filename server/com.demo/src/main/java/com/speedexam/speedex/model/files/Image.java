@@ -1,5 +1,6 @@
-package com.speedexam.speedex.model;
+package com.speedexam.speedex.model.files;
 
+import com.speedexam.speedex.model.Person;
 import jakarta.persistence.*;
 import lombok.Data;
 

@@ -1,7 +1,7 @@
-package com.speedexam.speedex.controller;
+package com.speedexam.speedex.controller.files;
 
 
-import com.speedexam.speedex.service.ImageService;
+import com.speedexam.speedex.service.files.ImageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
