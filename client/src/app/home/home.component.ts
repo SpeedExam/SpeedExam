@@ -1,18 +1,18 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {HeaderComponent} from "../header/header.component";
-import {HeroComponent} from "../hero/hero.component";
-import {FeatureComponent} from "../feature/feature.component";
-import {FooterComponent} from "../footer/footer.component";
-import {TeamComponent} from "../team/team.component";
+import {Component, OnInit} from '@angular/core';
+import {AuthServiceService} from "../services/auth-service.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
-  standalone: true,
-  imports: [CommonModule, HeaderComponent, HeroComponent, FeatureComponent, FooterComponent, TeamComponent],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
+  constructor(private userService:AuthServiceService,private router:Router) {
+  }
+  ngOnInit() {
+    if(this.userService.isLogged()){
+      this.router.navigate(['admin/dashboard']);
 
+    }  }
 }
