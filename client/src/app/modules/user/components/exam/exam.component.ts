@@ -1,3 +1,4 @@
+import { Option, Question } from './../../classes/user';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -7,29 +8,92 @@ import { Router } from '@angular/router';
   styleUrl: './exam.component.scss'
 })
 export class ExamComponent {
-  timer: any;
+  timer: any={
+    duration: 10,
+    minutes: 0,
+    seconds: 0
+  };
+  score=0;
+  result=0;
   isStarted: boolean = false;
   currentQuestionIndex = 0;
-  selectedOptionIndex: number = 0;
+  selectedOption: Option | undefined;
+  selectedOptionIndex: number | undefined;
   answered = false;
-  currentQuestion: { id:number, question: string; options: string[] } = { id:-1,question: '', options: [] };
-  questions: { id:number, question: string; options: string[] }[] = [
-    { id:1, question: 'What is the capital of France?', options: ['Paris', 'Berlin', 'London', 'Madrid'] },
-    { id:2, question: 'What is the largest planet in our solar system?', options: ['Earth', 'Jupiter', 'Mars', 'Venus'] },
+  currentQuestion: { id:number, question: string; options: Option[] } = { id:-1,question: '', options: [] };
+  questions: { id:number, question: string; options: Option[] }[] = [
+    {
+      id:1,
+      question: 'What is the capital of India?',
+      options: [
+        { id:1,content: 'New Delhi', isCorrect: true },
+        { id:2,content: 'Mumbai', isCorrect: false },
+        { id:3,content: 'Kolkata', isCorrect: false },
+        { id:4,content: 'Chennai', isCorrect: false }
+      ]
+    },
+    {
+      id:2,
+      question: 'What is the capital of Australia?',
+      options: [
+        { id:1,content: 'Sydney', isCorrect: false },
+        { id:2,content: 'Melbourne', isCorrect: false },
+        { id:3,content: 'Canberra', isCorrect: true },
+        { id:4,content: 'Perth', isCorrect: false }
+      ]
+    },
+    {
+      id:3,
+      question: 'What is the capital of United States?',
+      options: [
+        { id:1,content: 'New York', isCorrect: false },
+        { id:2,content: 'Washington DC', isCorrect: true },
+        { id:3,content: 'Los Angeles', isCorrect: false },
+        { id:4,content: 'Chicago', isCorrect: false }
+      ]
+    },
+    {
+      id:4,
+      question: 'What is the capital of United Kingdom?',
+      options: [
+        { id:1,content: 'London', isCorrect: true },
+        { id:2,content: 'Manchester', isCorrect: false },
+        { id:3,content: 'Liverpool', isCorrect: false },
+        { id:4,content: 'Birmingham', isCorrect: false }
+      ]
+    },
+    {
+      id:5,
+      question: 'What is the capital of Japan?',
+      options: [
+        { id:1,content: 'Tokyo', isCorrect: true },
+        { id:2,content: 'Kyoto', isCorrect: false },
+        { id:3,content: 'Osaka', isCorrect: false },
+        { id:4,content: 'Yokohama', isCorrect: false }
+      ]
+    }
   ];
   responses: { questionid: number; answer: number }[] = [];
 
   constructor(private router: Router) { }
 
-
   start():void {
+    this.startTimer();
     this.isStarted = true;
     console.log('Exam started');
     this.showCurrentQuestion();
-    this.startTimer(60);
+  }
+
+  correctQuestion():void{
+    this.selectedOption=this.currentQuestion.options.find((option) => option.id === this.selectedOptionIndex);
+    if(this.selectedOption?.isCorrect)
+    {
+      this.score++;
+    }
   }
 
   unloadHandler():any{
+    clearInterval(this.timer);
     this.router.navigate(['/user']);
   }
 
@@ -39,9 +103,8 @@ export class ExamComponent {
     return confirmationMessage;
 }
 nextQuestion() {
+  this.correctQuestion();
   this.answered = false;
-  this.responses.push({ questionid: this.currentQuestion.id, answer: this.selectedOptionIndex });
-  
   this.currentQuestionIndex++;
   this.showCurrentQuestion();
 }
@@ -51,7 +114,8 @@ showCurrentQuestion() {
 }
 
 completeExam() {
-  this.responses.push({ questionid: this.currentQuestion.id, answer: this.selectedOptionIndex });
+  this.result=(this.score/this.questions.length)*100;
+  console.log(this.result);
   this.navigateToUserProfile();
 }
 
@@ -59,21 +123,24 @@ navigateToUserProfile() {
   this.router.navigate(['/user']);
 }
 
-startTimer(duration: number) {
-  let timer = duration, minutes, seconds;
-  this.timer = setInterval(() => {
-    minutes = parseInt((timer / 60).toString(), 10);
-    seconds = parseInt((timer % 60).toString(), 10);
+startTimer() {
 
-    minutes = minutes < 10 ? minutes : minutes;
-    seconds = seconds < 10 ? 0 + seconds : seconds;
+  this.timer.interval = setInterval(() => {
+    this.timer.minutes = Math.floor(this.timer.duration / 60);
+    this.timer.seconds = this.timer.duration % 60;
 
-    if (--timer < 0) {
-      timer = duration;
-    }
-    if (minutes == 0 && seconds == 0) {
-      clearInterval(this.timer);
+    this.timer.minutes = this.timer.minutes < 10 ? `0${this.timer.minutes}` : this.timer.minutes;
+    this.timer.seconds = this.timer.seconds < 10 ? `0${this.timer.seconds}` : this.timer.seconds;
+
+    if (--this.timer.duration < 0) {
+      clearInterval(this.timer.interval);
       this.completeExam();
     }
-  }, 1000)}
+  }, 1000);
+}
+
+
+ngOnDestroy(): void {
+  clearInterval(this.timer);
+}
 }

@@ -11,18 +11,21 @@
     <div>
     <mat-radio-group [(ngModel)]="selectedOptionIndex">
       <mat-radio-button *ngFor="let option of currentQuestion.options; let i=index;" [value]="i+1" class="block m-5">
-        {{option}}
+        {{option.content}}
       </mat-radio-button>
     </mat-radio-group>
   </div>
 
-    <div class="flex justify-end pt-4">
+    <div class="flex justify-between pt-4">
+    <div class="text-bold text-lg flex items-center">{{this.timer.minutes}}:{{this.timer.seconds}}</div>
+    <div>
     <button class="bg-blue-500 hover:bg-blue-700 text-white text-lg py-2 px-4 rounded flex items-center justify-center" (click)="nextQuestion()" *ngIf="currentQuestionIndex < questions.length - 1">
       <mat-icon>arrow_forward</mat-icon>
     </button>
     <button class="bg-green-500 hover:bg-green-700 text-white text-lg py-2 px-4 rounded flex items-center justify-center" (click)="completeExam()" *ngIf="currentQuestionIndex === questions.length - 1">
       <mat-icon>check</mat-icon>
     </button>
+  </div>
   </div>
   </div>
 </div>
