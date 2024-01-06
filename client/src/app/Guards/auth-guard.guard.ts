@@ -3,8 +3,7 @@ import {AuthServiceService} from "../services/auth-service.service";
 import {NgToastService} from "ng-angular-popup";
 
 export const authGuardGuard: CanActivateFn = (route, state) => {
-  return true;
-  /*const auth = new AuthServiceService();
+  const auth = new AuthServiceService();
   const router = new Router();
   const toast = new NgToastService();
   const requiredRole = route.data && route.data['role'];
@@ -30,5 +29,5 @@ export const authGuardGuard: CanActivateFn = (route, state) => {
   } else {
     router.navigate(['login']);
     return false;
-  }*/
+  }
 };

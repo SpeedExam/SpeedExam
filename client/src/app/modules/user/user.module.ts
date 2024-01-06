@@ -13,6 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCommonModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { SettingsComponent } from './components/settings/settings.component';
+import { ResultsComponent } from './components/results/results.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { SettingsComponent } from './components/settings/settings.component';
     SideBarComponent,
     ExamsComponent,
     ExamComponent,
+    ResultsComponent,
     SettingsComponent
   ],
   imports: [

@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrl: './exam.component.scss'
 })
 export class ExamComponent {
+  timer: any;
   isStarted: boolean = false;
   currentQuestionIndex = 0;
   selectedOptionIndex: number = 0;
@@ -25,6 +26,7 @@ export class ExamComponent {
     this.isStarted = true;
     console.log('Exam started');
     this.showCurrentQuestion();
+    this.startTimer(60);
   }
 
   unloadHandler():any{
@@ -39,6 +41,7 @@ export class ExamComponent {
 nextQuestion() {
   this.answered = false;
   this.responses.push({ questionid: this.currentQuestion.id, answer: this.selectedOptionIndex });
+  
   this.currentQuestionIndex++;
   this.showCurrentQuestion();
 }
@@ -55,4 +58,22 @@ completeExam() {
 navigateToUserProfile() {
   this.router.navigate(['/user']);
 }
+
+startTimer(duration: number) {
+  let timer = duration, minutes, seconds;
+  this.timer = setInterval(() => {
+    minutes = parseInt((timer / 60).toString(), 10);
+    seconds = parseInt((timer % 60).toString(), 10);
+
+    minutes = minutes < 10 ? minutes : minutes;
+    seconds = seconds < 10 ? 0 + seconds : seconds;
+
+    if (--timer < 0) {
+      timer = duration;
+    }
+    if (minutes == 0 && seconds == 0) {
+      clearInterval(this.timer);
+      this.completeExam();
+    }
+  }, 1000)}
 }
