@@ -17,7 +17,10 @@ import {ToastrModule} from "ngx-toastr";
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 import {NgToastModule} from "ng-angular-popup";
-
+import {MatIconModule} from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { ResultsComponent } from './modules/user/components/results/results.component';
+import { SettingsComponent } from './src/app/modules/user/components/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,8 @@ import {NgToastModule} from "ng-angular-popup";
     TeamComponent,
     NotFoundComponent,
     HomeComponent,
-
+    ResultsComponent,
+    SettingsComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,10 @@ import {NgToastModule} from "ng-angular-popup";
     ReactiveFormsModule,
     BrowserAnimationsModule, // Add this line
     ToastrModule.forRoot(),
-    NgToastModule
+    NgToastModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+
   ],
   providers: [
     provideClientHydration()
