@@ -23,17 +23,17 @@ export class RegisterComponent implements OnInit{
       this.router.navigate(['./admin/dashboard']);
     }
   this.register_form=this.builder.group({
-    firstName:this.builder.control('',Validators.required),
-    lastName:this.builder.control('',Validators.required),
+    firstname:this.builder.control('',Validators.required),
+    lastname:this.builder.control('',Validators.required),
     email:this.builder.control('',Validators.compose([Validators.required,Validators.email])),
-    id_Card:this.builder.control('',Validators.compose([Validators.required,Validators.maxLength(8)])),
+    role:this.builder.control('',Validators.required),
     password:this.builder.control('',Validators.compose([Validators.required,Validators.minLength(8)])),
     confirm_password:this.builder.control('',Validators.compose([Validators.required,Validators.minLength(8)]))
   });
   }
 
   onRegister() {
-    console.log(this.register_form.controls);
+    console.log(this.register_form.value);
     this.errorMessages = {}; // Reset error messages
     // Object.keys(this.register_form.controls).forEach(field => {
     //   const control = this.register_form.get(field);
@@ -61,12 +61,13 @@ export class RegisterComponent implements OnInit{
         );
 
     }
+
   }
   get FirstName():FormControl{
-    return this.register_form.get('firstName') as FormControl;
+    return this.register_form.get('firstname') as FormControl;
   }
   get LastName():FormControl{
-    return this.register_form.get('lastName') as FormControl;
+    return this.register_form.get('lastname') as FormControl;
   }
   get Email():FormControl{
     return this.register_form.get('email') as FormControl;
@@ -77,8 +78,8 @@ export class RegisterComponent implements OnInit{
   get Confirm_Password():FormControl{
     return this.register_form.get('confirm_password') as FormControl;
   }
-  get Id_Card():FormControl{
-    return this.register_form.get('id_Card') as FormControl;
+  get Role():FormControl{
+    return this.register_form.get('role') as FormControl;
   }
 
 

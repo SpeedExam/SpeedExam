@@ -30,7 +30,7 @@ public class AuthenticationService {
                 request.getEmail() == null ||
                 request.getPassword() == null ||
                 request.getRole() == null)
-            throw new IllegalArgumentException(" ALL FIELDS ARE REQUIRED");
+            throw new IllegalArgumentException(" ALL FIELDS ARE REQUIRED"+request);
 
         var user = User.builder()
                 .firstname(request.getFirstname())
@@ -45,6 +45,7 @@ public class AuthenticationService {
         saveUserToken(dbsaveduser, jwToken);
         return AuthenticationResponse.builder()
                 .accessToken(jwToken)
+                .role(user.getRole())
                 .build();
     }
 
@@ -60,6 +61,7 @@ public class AuthenticationService {
         saveUserToken(user, jwToken);
         return AuthenticationResponse.builder()
                 .accessToken(jwToken)
+                .role(user.getRole())
                 .build();
     }
 

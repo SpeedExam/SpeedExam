@@ -8,7 +8,7 @@ import {ɵFormGroupValue, ɵTypedOrUntyped} from "@angular/forms";
   providedIn: 'root'
 })
 export class AuthService {
-  basedUrl:String="http://localhost:8090/api/auth/"
+  basedUrl:String="http://localhost:8090/auth/"
   constructor(private http:HttpClient) {
   }
   login(userData:any):Observable<LoginResponse>{
@@ -22,8 +22,8 @@ export class AuthService {
   register(userData: any): Observable<LoginResponse> {
     // Remove the confirm_password field if it exists
     const {confirm_password, ...userDataWithoutConfirmPassword} = userData;
-
-    const registerUrl = `${this.basedUrl}register`;
+    console.log(userData);
+    const registerUrl = `${this.basedUrl}signup`;
     return this.http.post<LoginResponse>(registerUrl, userDataWithoutConfirmPassword);
   }
 }

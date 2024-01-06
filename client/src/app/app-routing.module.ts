@@ -10,8 +10,8 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'home',component:HomeComponent},
-  {path:'admin',loadChildren:()=>import("./modules/admin/admin.module").then((m)=>m.AdminModule),canActivate:[authGuardGuard]},
-  {path:'user',loadChildren:()=>import("./modules/user/user.module").then((m)=>m.UserModule),canActivate:[authGuardGuard]},
+  {path:'admin',loadChildren:()=>import("./modules/admin/admin.module").then((m)=>m.AdminModule),canActivate:[authGuardGuard],data: { role: 'professor' }},
+  {path:'user',loadChildren:()=>import("./modules/user/user.module").then((m)=>m.UserModule),canActivate:[authGuardGuard],data: { role: 'student' }},
   {path:'',redirectTo:'home',pathMatch:"full"},
   {path:'**',component:NotFoundComponent}
 ];

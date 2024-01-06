@@ -8,18 +8,18 @@ export class AuthServiceService {
   setToken(token: string): void {
     localStorage.setItem("token",token)
   }
-  setId(Id:number){
-    localStorage.setItem("id",Id.toLocaleString());
+  setRole(role:string){
+    localStorage.setItem("role",role.toLocaleString());
   }
 
-  getId(): String | null{
-    return localStorage.getItem("id") ;
+  getRole(): String | null{
+    return localStorage.getItem("role") ;
   }
   getToken(): string | null{
     return localStorage.getItem("token");
   }
   isLogged():boolean{
-    if(this.getToken()!=null && this.getId()!=null){
+    if(this.getToken()!=null && this.getRole()!=null){
       return true;
     }
     else

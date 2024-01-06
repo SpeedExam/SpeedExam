@@ -1,4 +1,4 @@
-import exp from "constants";
+
 
 export interface Login {
   username:string,
@@ -15,5 +15,5 @@ export interface Register{
 }
 export interface LoginResponse{
   token:string,
-  id:number,
+  role:string,
 }

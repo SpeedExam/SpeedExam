@@ -13,7 +13,7 @@ import {NgToastService} from "ng-angular-popup";
 export class LoginComponent implements OnInit{
   login_form !: FormGroup;
   token:string='';
-  id:number=0;
+  role:string='';
   registrationSuccess: boolean = false;
 
   constructor(private service:AuthService, private route: ActivatedRoute, private builder:FormBuilder,private router:Router,private userhservice:AuthServiceService,private toast:NgToastService) {
@@ -41,11 +41,12 @@ export class LoginComponent implements OnInit{
         console.log(response);
 
         this.userhservice.setToken(response.token);
-        this.userhservice.setId(response.id);
-        if (response.id == 1) {
+        this.userhservice.setRole(response.role);
+        if (response.role=="PROFESSOR") {
           this.toast.success({detail: "Success message", summary: "Login is Success", duration: 5000});
           this.router.navigate(['admin/dashboard']);
-        } else {
+        }
+        if(response.role=="STUDENT"){
           this.toast.success({detail: "Success message", summary: "Login is Success", duration: 5000});
           this.router.navigate(['user']);
         }
