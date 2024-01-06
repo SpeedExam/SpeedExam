@@ -1,0 +1,29 @@
+<div *ngIf="!isStarted ; else startExam" class="bg-gray-100 h-screen flex items-center justify-center">
+  <div class="text-center">
+    <p class="text-2xl font-bold mb-4">You have 60 minutes on this exam</p>
+    <button (click)="this.start()" class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600">Begin</button>
+  </div>
+</div>
+<ng-template #startExam >
+  <div class="bg-gray-700 flex h-screen justify-center items-center">
+    <div class="p-12 card">
+    <h2 class="text-2xl mb-4">{{ currentQuestion.question }}</h2>
+    <div>
+    <mat-radio-group [(ngModel)]="selectedOptionIndex">
+      <mat-radio-button *ngFor="let option of currentQuestion.options; let i=index;" [value]="i+1" class="block m-5">
+        {{option}}
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+    <div class="flex justify-end pt-4">
+    <button class="bg-blue-500 hover:bg-blue-700 text-white text-lg py-2 px-4 rounded flex items-center justify-center" (click)="nextQuestion()" *ngIf="currentQuestionIndex < questions.length - 1">
+      <mat-icon>arrow_forward</mat-icon>
+    </button>
+    <button class="bg-green-500 hover:bg-green-700 text-white text-lg py-2 px-4 rounded flex items-center justify-center" (click)="completeExam()" *ngIf="currentQuestionIndex === questions.length - 1">
+      <mat-icon>check</mat-icon>
+    </button>
+  </div>
+  </div>
+</div>
+</ng-template>
