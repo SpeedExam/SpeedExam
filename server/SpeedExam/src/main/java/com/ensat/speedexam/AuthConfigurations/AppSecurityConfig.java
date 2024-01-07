@@ -33,7 +33,9 @@ public class AppSecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(req -> req
-                        .requestMatchers("/auth/**")
+                        .requestMatchers("/signup")
+                        .permitAll()
+                        .requestMatchers("/login")
                         .permitAll()
                         .requestMatchers("/error")
                         .permitAll()
