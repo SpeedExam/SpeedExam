@@ -10,6 +10,14 @@ export interface Question{
   name:string,
 }
 
+export interface result{
+  id:number,
+  exam:string,
+  type:string,
+  prof:string,
+  score:number
+}
+
 export interface Exam{
   id:number,
   name:string,

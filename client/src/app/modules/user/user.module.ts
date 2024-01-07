@@ -1,3 +1,4 @@
+import { SidenavComponent } from './components/side-nav/side-nav.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -14,6 +15,7 @@ import { MatCommonModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { SettingsComponent } from './components/settings/settings.component';
 import { ResultsComponent } from './components/results/results.component';
+import { SublevelMenuComponent } from './components/side-nav/sublevel.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { ResultsComponent } from './components/results/results.component';
     ExamsComponent,
     ExamComponent,
     ResultsComponent,
-    SettingsComponent
+    SettingsComponent,
+    SidenavComponent,
+    SublevelMenuComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +38,7 @@ import { ResultsComponent } from './components/results/results.component';
     MatIconModule,
     MatRadioModule,
     MatButtonModule,
-    MatCommonModule
+    MatCommonModule,
   ]
 })
 export class UserModule { }

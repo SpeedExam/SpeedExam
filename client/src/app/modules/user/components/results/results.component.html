@@ -1,14 +1,21 @@
-<!-- <section class="bg-white min-h-screen">
+<section class="bg-white min-h-screen">
   <div class="container mx-auto p-8">
     <h1 class="text-2xl font-bold mb-4">Your Exams</h1>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      <div *ngFor="let exam of exams; let i = index" class="bg-white p-6 rounded-md shadow-md mb-4">
-        <h2 class="text-lg font-semibold mb-2">{{exam.name}}</h2>
-        <p class="text-gray-600 mb-2">Type: {{exam.type}}</p>
-        <p class="text-gray-600">Professor: {{exam.prof}}</p>
-
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      <div *ngFor="let result of results; let i = index" class="bg-white p-6 rounded-md shadow-md mb-4">
+        <h2 class="text-lg font-semibold mb-2">{{result.exam}}</h2>
+        <p class="text-gray-600 mb-2">Type: {{result.type}}</p>
+        <p class="text-gray-600">Professor: {{result.prof}}</p>
+        <div  *ngIf="result.score>50;else badResult">
+          <div class="text-green-500">{{result.score}}%</div>
+          <div class="text-green-500">Passed</div>
+      </div>
+        <ng-template #badResult><div>
+          <div class="text-red-500">{{result.score}}%</div>
+          <div class="text-red-500">Failed</div>
+        </div></ng-template>
       </div>
     </div>
   </div>
-</section> -->
+</section>

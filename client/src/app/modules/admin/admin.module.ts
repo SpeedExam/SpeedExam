@@ -1,3 +1,4 @@
+import { SublevelMenuComponent1 } from './side-nav/sublevel.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -9,6 +10,8 @@ import { RecentUsersComponent } from './components/recent-transactions/recent-us
 import { OverviewComponent } from './components/overview/overview.component';
 import { UserTableComponent } from './components/user-table/user-table.component';
 import { FooterDashboardComponent } from './components/footer-dashboard/footer-dashboard.component';
+import { Sidenav1Component } from './side-nav/side-nav.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -19,14 +22,17 @@ import { FooterDashboardComponent } from './components/footer-dashboard/footer-d
     RecentUsersComponent,
     OverviewComponent,
     UserTableComponent,
-    FooterDashboardComponent
+    FooterDashboardComponent,
+    Sidenav1Component,
+    SublevelMenuComponent1
   ],
   exports: [
     SidebarComponent
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    MatIconModule
   ]
 })
 export class AdminModule { }

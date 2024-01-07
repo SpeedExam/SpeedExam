@@ -1,0 +1,33 @@
+<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed': ''">
+  <div class="logo-container">
+      <button class="logo text-blue-500" (click)="toggleCollapse()">Ex</button>
+      <div class="logo-text" @fadeInOut *ngIf="collapsed">Speed<span class="text-blue-500">Exam</span></div>
+      <button class="btn-close" @rotate *ngIf="collapsed" (click)="closeSidenav()">
+          <mat-icon style="color: white;">arrow_back</mat-icon>
+      </button>
+  </div>
+  <div class="scrollwrap scrollwrap_delayed">
+      <ul class="sidenav-nav">
+          <li class="sidenav-nav-item" *ngFor="let data of navData">
+              <a class="sidenav-nav-link" (click)="handleClick(data)"
+                  *ngIf="data.items && data.items.length > 0"
+                  [ngClass]="getActiveClass(data)"
+              >
+              </a>
+
+              <a class="sidenav-nav-link justify-center"
+                  *ngIf="!data.items || (data.items && data.items.length === 0)"
+                  [routerLink]="[data.routeLink]"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{exact: true}"
+                  (click)="shrinkItems(data)"
+                  >
+                  <div><mat-icon>{{data.icon}}</mat-icon></div>
+                  <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">
+                      {{data.label}}
+                  </span>
+              </a>
+          </li>
+      </ul>
+  </div>
+</div>
