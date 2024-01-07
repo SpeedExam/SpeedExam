@@ -40,7 +40,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         logger.info("FILTER BEGIN !!! ");
         // Skip authentication when accessing a Login or a Signup form
-        if (request.getServletPath().contains("/auth")) {
+        if (request.getServletPath().contains("/signup") || request.getServletPath().contains("/login")) {
             filterChain.doFilter(request, response);
             return;
         }
