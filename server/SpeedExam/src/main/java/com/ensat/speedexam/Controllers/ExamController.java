@@ -66,6 +66,32 @@ public class ExamController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
     }
+    @PostMapping("/{examId}/addNote")
+    public ResponseEntity<Exam> addNoteToExam(
+            @PathVariable Long examId,
+            float Note
+    ) {
+        try {
+            Exam updatedExam = examService.addNoteToExam(examId, Note);
+            return ResponseEntity.ok(updatedExam);
+        } catch (Exception e) {
+            // Handle exceptions (e.g., if examId is not found)
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+    }
+    @PostMapping("/{examId}/addNote")
+    public ResponseEntity<Exam> addNoteToExam(
+            @PathVariable Long examId,
+            int duree
+    ) {
+        try {
+            Exam updatedExam = examService.addExamtimeLimits(examId, duree);
+            return ResponseEntity.ok(updatedExam);
+        } catch (Exception e) {
+            // Handle exceptions (e.g., if examId is not found)
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+    }
 
 
 

@@ -58,7 +58,7 @@ public class ExamService {
             throw new Exception("Exam not found for ID: " + id);
         }
     }
-    public Exam addQuestionsToExam(Long examId, List<Long> questionIds) throws Exception{
+    public Exam addQuestionsToExam(Long examId, List<Long> questionIds) throws Exception {
         Exam exam = examRepository.findById(examId).orElse(null);
         if (exam != null) {
             List<Question> questionsToAdd = questionRepository.findAllById(questionIds);
@@ -69,6 +69,27 @@ public class ExamService {
             throw new Exception("Exam not found for ID: " + examId);
         }
     }
+    public Exam addNoteToExam(Long examId, float Note) throws Exception{
+        Exam exam = examRepository.findById(examId).orElse(null);
+        if (exam != null) {
+            exam.setNote(Note);
+            examRepository.save(exam);
+            return exam;
+        } else {
+            throw new Exception("Exam not found for ID: " + examId);
+        }
+    }
+    public Exam addExamtimeLimits(Long examId, int duree) throws Exception{
+        Exam exam = examRepository.findById(examId).orElse(null);
+        if (exam != null) {
+            exam.setTimeLimits(duree);
+            examRepository.save(exam);
+            return exam;
+        } else {
+            throw new Exception("Exam not found for ID: " + examId);
+        }
+    }
+
 
 
 
