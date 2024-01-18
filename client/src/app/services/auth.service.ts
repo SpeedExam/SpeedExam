@@ -8,7 +8,7 @@ import {ɵFormGroupValue, ɵTypedOrUntyped} from "@angular/forms";
   providedIn: 'root'
 })
 export class AuthService {
-  basedUrl:String="http://localhost:8090/auth/"
+  basedUrl:String="http://localhost:8090/"
   constructor(private http:HttpClient) {
   }
   login(userData:any):Observable<LoginResponse>{

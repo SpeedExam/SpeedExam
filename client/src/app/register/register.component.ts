@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ToastrService} from "ngx-toastr";
 import {AuthServiceService} from "../services/auth-service.service";
+import {NgToastService} from "ng-angular-popup";
 
 @Component({
   selector: 'app-register',
@@ -13,7 +14,7 @@ import {AuthServiceService} from "../services/auth-service.service";
 export class RegisterComponent implements OnInit{
   errorMessages: { [key: string]: string } = {};
 
-  constructor(private service: AuthService,private router:Router,private builder:FormBuilder,private toasters:ToastrService,private userhservice:AuthServiceService) {
+  constructor(private service: AuthService,private router:Router,private builder:FormBuilder,private toasters:ToastrService,private userhservice:AuthServiceService,private toast:NgToastService) {
   }
 
   public register_form !: FormGroup;
@@ -51,16 +52,18 @@ export class RegisterComponent implements OnInit{
           (response) => {
             console.log(response);
 
-            // this.toasters.success("Registered successfully ")
+            this.toast.success({detail: "Success message", summary: "Register is Success", duration: 5000});
             this.router.navigate(['/login'],{ queryParams: { registrationSuccess: true } });
           },
           (error)=>{
             console.error(error);
-            this.toasters.error("Registration failed");
+            this.toast.error({detail:"Error message",summary:"Register is failed",duration:15000});
           }
         );
 
     }
+    else
+      this.toast.error({detail:"Error message",summary:"Register is failed",duration:15000});
 
   }
   get FirstName():FormControl{

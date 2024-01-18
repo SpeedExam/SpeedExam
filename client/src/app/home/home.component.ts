@@ -10,9 +10,10 @@ import {Router} from "@angular/router";
 export class HomeComponent implements OnInit{
   constructor(private userService:AuthServiceService,private router:Router) {
   }
-  ngOnInit() {
+   ngOnInit() {
     if(this.userService.isLogged()){
       this.router.navigate(['admin/dashboard']);
 
-    }  }
+    }
+      }
 }
