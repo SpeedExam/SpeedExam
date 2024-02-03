@@ -27,5 +27,8 @@ public class Exam {
     @JoinColumn(name = "person_id")
     private Person person;
 
+    private float note;
+
+    private int timeLimits; // it's in minuts
 
 }
