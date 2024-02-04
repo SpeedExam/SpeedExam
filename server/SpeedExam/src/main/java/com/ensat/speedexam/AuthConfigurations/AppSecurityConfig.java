@@ -35,6 +35,18 @@ public class AppSecurityConfig {
                 .authorizeHttpRequests(req -> req
                         .requestMatchers("/signup")
                         .permitAll()
+                        .requestMatchers("/swagger-ui/index.html"
+                        ,"/v2/api-docs/**"
+                                ,"/v3/api-docs/**"
+                                ,"/swagger-resources"
+                                ,"/swagger-resources/**"
+                                ,"/confguration/ui"
+                                ,"configuration/security"
+                                ,"swagger-ui/**"
+                                ,"webjars/**"
+                                ,"swagger-ui.html"
+                        )
+                        .permitAll()
                         .requestMatchers("/login")
                         .permitAll()
                         .requestMatchers("/error")
