@@ -8,10 +8,5 @@ import {Router} from "@angular/router";
   styleUrl: './user-dashboard.component.scss'
 })
 export class UserDashboardComponent{
-  constructor(private auth:AuthServiceService,private router:Router) {
-  }
-  onLogOut() {
-    this.auth.logout();
-    this.router.navigate(['home']);
-  }
+
 }
