@@ -2,7 +2,8 @@ import { animate, keyframes, style, transition, trigger } from '@angular/animati
 import { Component, Output, EventEmitter, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { fadeInOut, INavbarData } from './helper';
-import { navbarData } from './nav-data';
+import { navbarData,logout} from './nav-data';
+import { AuthServiceService } from '../../../services/auth-service.service';
 
 interface SideNavToggle {
   screenWidth: number;
@@ -10,7 +11,7 @@ interface SideNavToggle {
 }
 
 @Component({
-  selector: 'app-sidenav1',
+  selector: 'app-sidenav',
   templateUrl: './side-nav.component.html',
   styleUrls: ['./side-nav.component.scss'],
   animations: [
@@ -29,11 +30,13 @@ interface SideNavToggle {
 })
 export class Sidenav1Component implements OnInit {
 
+  constructor(private auth:AuthServiceService,public router: Router) {}
 
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
   collapsed = false;
   screenWidth = 0;
   navData = navbarData;
+  logout = logout;
   multiple: boolean = false;
 
   @HostListener('window:resize', ['$event'])
@@ -45,12 +48,14 @@ export class Sidenav1Component implements OnInit {
     }
   }
 
-  constructor(public router: Router) {}
+  onLogOut() {
+    this.auth.logout();
+    this.router.navigate(['home']);
+  }
 
   ngOnInit(): void {
       this.screenWidth = window.innerWidth;
   }
-
 
   toggleCollapse(): void {
     this.collapsed = !this.collapsed;

@@ -28,6 +28,23 @@
                   </span>
               </a>
           </li>
+          <li class="sidenav-nav-item">
+              <a class="sidenav-nav-link" (click)="handleClick(logout)"
+                *ngIf="logout.items && logout.items.length > 0"
+                [ngClass]="getActiveClass(logout)"
+                >
+              </a>
+
+            <a class="sidenav-nav-link justify-center"
+                *ngIf="!logout.items || (logout.items && logout.items.length === 0)"
+                (click)="onLogOut()"
+                >
+                <div><mat-icon>{{logout.icon}}</mat-icon></div>
+                <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">
+                    {{logout.label}}
+                </span>
+            </a>
+            </li>
       </ul>
   </div>
 </div>

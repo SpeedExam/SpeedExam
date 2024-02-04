@@ -20,5 +20,4 @@ export class ResultsComponent {
     {id:9,exam:'exam9',type:'type9',prof:'prof9',score:90},
     {id:10,exam:'exam10',type:'type10',prof:'prof10',score:100},
   ]
-
 }
