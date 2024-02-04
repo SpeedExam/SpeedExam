@@ -202,7 +202,7 @@ export class NewExamComponent {
     //
     this.serv.updateExam(sampleTest,this.id).subscribe(
       res=>{
-        this.toast.warning({detail:"Deletion",summary:'THE QUESTION IS DELETED susscefully',sticky:true});
+        this.toast.warning({detail:"Deletion",summary:'THE QUESTION IS DELETED ',sticky:true});
       }
     )
 
