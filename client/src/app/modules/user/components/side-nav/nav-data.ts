@@ -1,5 +1,11 @@
 import { INavbarData } from "./helper";
 
+export const logout: INavbarData = {
+    routeLink: '/logout',
+    icon: 'logout',
+    label: 'Logout',
+};
+
 export const navbarData: INavbarData[] = [
     {
         routeLink: '/user',
