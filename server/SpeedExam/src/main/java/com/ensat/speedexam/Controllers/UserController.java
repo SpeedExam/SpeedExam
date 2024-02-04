@@ -1,17 +1,19 @@
 package com.ensat.speedexam.Controllers;
 
 import com.ensat.speedexam.AuthConfigurations.AuthEntites.ChangePasswordRequest;
+import com.ensat.speedexam.Entites.Exam;
+import com.ensat.speedexam.Entites.User;
 import com.ensat.speedexam.Services.Auth.LogoutService;
 import com.ensat.speedexam.Services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.security.Principal;
 
 @RestController
@@ -32,5 +34,7 @@ public class UserController {
         logger.info("PASSWORD CHANGED");
         return ResponseEntity.ok().build();
     }
+
+
 
 }

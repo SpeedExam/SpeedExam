@@ -79,8 +79,8 @@ public class ExamController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
     }
-    @PostMapping("/{examId}/addNote")
-    public ResponseEntity<Exam> addNoteToExam(
+    @PostMapping("/{examId}/TimeLimit")
+    public ResponseEntity<Exam> addTimeLimitsToExam(
             @PathVariable Long examId,
             int duree
     ) {

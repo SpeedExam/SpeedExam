@@ -36,6 +36,7 @@ public class User implements UserDetails{
     @OneToMany(mappedBy = "user")
     private List<Token> tokens;
 
+
     // Return User role / authority in a String format.
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

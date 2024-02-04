@@ -31,5 +31,6 @@ public class UserService {
         user.setPassword(passwordEncoder.encode(request.getConfirmationPassword()));
         userRepository.save(user);
     }
+
 }
 
