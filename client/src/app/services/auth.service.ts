@@ -26,4 +26,19 @@ export class AuthService {
     const registerUrl = `${this.basedUrl}signup`;
     return this.http.post<LoginResponse>(registerUrl, userDataWithoutConfirmPassword);
   }
+  logout(): void {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    });
+    this.http.post(this.basedUrl + 'logout', {headers}).subscribe(
+      (response) => {
+        localStorage.removeItem('token');
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 }
