@@ -20,7 +20,11 @@ public class Question {
     private String name;
 
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
+
     private List<Option> options = new ArrayList<>();
+
+    private int CorrectAns;
+
 
     @ManyToOne
     @JoinColumn(name = "exam_id")
