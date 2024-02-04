@@ -1,0 +1,127 @@
+
+
+
+<ng-toast></ng-toast>
+
+<div class="new-exam">
+  <mat-horizontal-stepper linear #stepper [selectedIndex]="stepperIndex">
+    <mat-step label="Test Informations" [completed]="step1">
+
+      <div class="AddSubject">
+        <div><h1>Please enter the name and the Date of the Test : </h1> </div>
+        <div class="name">
+          <mat-form-field appearance="fill" >
+            <mat-label>Test Name</mat-label>
+            <input matInput type="text" [formControl]="TestName" >
+          </mat-form-field>
+
+        </div>
+        <button  class="aa" mat-raised-button color="primary"  (click)="start()" matStepperNext  >{{btt}}</button>
+
+
+        <!--  <div>
+            <mat-form-field appearance="fill" >
+              <mat-label>Test Date</mat-label>
+              <input matInput type="date"  [(ngModel)]="TestDate"  >
+            </mat-form-field>
+            <button  class="aa" mat-raised-button color="primary" matStepperNext (click)="start()" >Start</button>
+          </div>-->
+
+
+
+
+      </div>
+    </mat-step>
+
+
+    <mat-step label=" {{TestName.value}} questions" [completed]="step2">
+      <div class="question">
+        <form [formGroup] = "questionForm">
+          <mat-form-field appearance="outline" color="primary" class="queiz">
+            <mat-label>Question</mat-label>
+            <input matInput type="text" formControlName="question">
+          </mat-form-field>
+
+          <div class="row">
+            <div class="col-md-6 col-sm-12">
+              <mat-radio-button value="0" (change)="getCorrect($event)" color="warn"></mat-radio-button>
+              <mat-form-field color="primary">
+                <mat-label>Answer A</mat-label>
+                <input matInput type="text" formControlName="answer1">
+              </mat-form-field>
+            </div>
+
+            <div class="col-md-6 col-sm-12">
+              <mat-radio-button value="1" (change)="getCorrect($event)" color="warn"></mat-radio-button>
+              <mat-form-field color="primary">
+                <mat-label>Answer B</mat-label>
+                <input matInput type="text" formControlName="answer2">
+              </mat-form-field>
+            </div>
+
+            <div class="col-md-6 col-sm-12">
+              <mat-radio-button value="2" (change)="getCorrect($event)" color="warn"></mat-radio-button>
+              <mat-form-field color="primary">
+                <mat-label>Answer C</mat-label>
+                <input matInput type="text" formControlName="answer3">
+              </mat-form-field>
+            </div>
+
+            <div class="col-md-6 col-sm-12">
+              <mat-radio-button value="3" (change)="getCorrect($event)" color="warn"></mat-radio-button>
+              <mat-form-field color="primary">
+                <mat-label>Answer D</mat-label>
+                <input matInput type="text" formControlName="answer4">
+              </mat-form-field>
+            </div>
+            <div class="io">
+              <mat-form-field color="primary">
+                <mat-label>Timing(by min)</mat-label>
+                <input matInput type="number" formControlName="timing" min="1">
+              </mat-form-field>
+            </div>
+
+          </div>
+
+          <div class="questBtn">
+            <div>
+              <button mat-raised-button class="btn btn-success"   matStepperNext (click)="send()" >{{btt2}}</button>
+              <button mat-raised-button color="warn" matStepperPrevious (click)="cancel()">Cancel the exam</button>
+            </div>
+            <div>
+              <button mat-raised-button color="accent" (click)="delete()">Delete</button>
+              <button mat-raised-button color="primary"  (click)="addQuestion()">ADD the question</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </mat-step>
+
+    <mat-step label="Exam Display" [completed]="true">
+      <div class="examBox">
+        <div class="examhead text-center"><h2> {{TestName.value}} TEST </h2></div>
+        <div class="quizBox" *ngFor="let item of quest,let index =index">
+          <strong><span class="text-danger">{{item.question}}</span> </strong>
+          <div class="row"  *ngFor="let ans of item.answers">
+            <div class="col-sm-12">
+              {{ans}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <span class="text-success">   {{item.answers[item.correctAns]}}</span>
+            </div>
+          </div>
+
+
+
+          <div class="text-right">
+            <button mat-raised-button class="btn btn-danger" (click)="del(index)" >DELETE</button>
+
+          </div>
+          <hr>
+        </div>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>
