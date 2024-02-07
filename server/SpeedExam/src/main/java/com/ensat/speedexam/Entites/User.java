@@ -10,6 +10,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -35,6 +36,8 @@ public class User implements UserDetails{
     private Role role;
     @OneToMany(mappedBy = "user")
     private List<Token> tokens;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Exam> exams = new ArrayList<>();
 
 
     // Return User role / authority in a String format.

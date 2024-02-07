@@ -55,7 +55,7 @@ public class QuestionController {
         List<Question> questions = questionService.getQuestionsByExamId(examId);
         return ResponseEntity.ok(questions);
     }
-    @PostMapping("/{questionId}/addOptions")
+   /* @PostMapping("/{questionId}/addOptions")
     public ResponseEntity<Question> addOptionsToQuestion(
             @PathVariable Long questionId,
             @RequestBody List<Option> options
@@ -67,7 +67,7 @@ public class QuestionController {
             // Handle exceptions (e.g., if questionId is not found)
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
-    }
+    }*/
 
 
 

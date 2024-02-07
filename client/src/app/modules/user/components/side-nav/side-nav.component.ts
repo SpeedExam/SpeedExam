@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { fadeInOut, INavbarData } from './helper';
 import { navbarData,logout} from './nav-data';
 import { AuthServiceService } from '../../../../services/auth-service.service';
+import { AuthService } from '../../../../services/auth.service';
 
 interface SideNavToggle {
   screenWidth: number;
@@ -30,7 +31,7 @@ interface SideNavToggle {
 })
 export class SidenavComponent implements OnInit {
 
-  constructor(private auth:AuthServiceService,public router: Router) {}
+  constructor(private auth:AuthService,public router: Router) {}
 
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
   collapsed = false;
@@ -47,7 +48,7 @@ export class SidenavComponent implements OnInit {
       this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth});
     }
   }
-  
+
   onLogOut() {
     this.auth.logout();
     this.router.navigate(['home']);

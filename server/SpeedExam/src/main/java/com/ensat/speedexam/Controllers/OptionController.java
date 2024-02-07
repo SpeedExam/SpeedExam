@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("api/option")
 @RequiredArgsConstructor
 public class OptionController {
-    private final OptionService optionService;
+   /* private final OptionService optionService;
     @GetMapping("/{id}")
     public ResponseEntity<Option> getOptionById(@PathVariable Long id) {
         Option option = optionService.getOptionById(id);
@@ -47,5 +47,5 @@ public class OptionController {
     public ResponseEntity<List<Option>> getOptionsByQuestion(@PathVariable Long questionId) {
         List<Option> options = optionService.getOptionsByQuestionId(questionId);
         return ResponseEntity.ok(options);
-    }
+    }*/
 }
