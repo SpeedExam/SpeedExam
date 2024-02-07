@@ -5,11 +5,14 @@ import {CardsComponent} from "./components/cards/cards.component";
 import {authGuardGuard} from "../../Guards/auth-guard.guard";
 import {UserTableComponent} from "./components/user-table/user-table.component";
 import {OverviewComponent} from "./components/overview/overview.component";
+import { SettingsComponent } from './components/settings/settings.component';
+
 
 const routes: Routes = [
   {path:'',component:AdminDashboardsComponent,children:[
       {path:'dashboard',component:OverviewComponent},
-      {path:'users',component:UserTableComponent}
+      {path:'users',component:UserTableComponent},
+      {path:'settings',component:SettingsComponent}
     ]}
 ];
 

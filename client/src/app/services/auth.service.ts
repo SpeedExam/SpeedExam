@@ -3,6 +3,8 @@ import {Login, LoginResponse, Register} from "../classes/login";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {ɵFormGroupValue, ɵTypedOrUntyped} from "@angular/forms";
+import {subscribe} from "diagnostics_channel";
+import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Injectable({
   providedIn: 'root'
@@ -40,5 +42,14 @@ export class AuthService {
         console.log(error);
       }
     );
+  }
+  changePassword(userConf:any):Observable<any>{
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    });
+
+    return this.http.patch(this.basedUrl+'cp',userConf,{headers});
+
   }
 }

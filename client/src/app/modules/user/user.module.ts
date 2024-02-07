@@ -27,7 +27,8 @@ import { SublevelMenuComponent } from './components/side-nav/sublevel.component'
     ResultsComponent,
     SettingsComponent,
     SidenavComponent,
-    SublevelMenuComponent
+    SublevelMenuComponent,
+
   ],
   imports: [
     CommonModule,
