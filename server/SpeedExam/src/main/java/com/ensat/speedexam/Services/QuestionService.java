@@ -60,7 +60,7 @@ public class QuestionService {
         }
         return Collections.emptyList(); // Handle case where exam is not found
     }
-    public Question addOptionsToQuestion(Long questionId, List<Option> options)throws Exception {
+  /*  public Question addOptionsToQuestion(Long questionId, List<Option> options)throws Exception {
         Question question = questionRepository.findById(questionId).orElse(null);
         if (question != null) {
             options.forEach(option -> {
@@ -73,7 +73,7 @@ public class QuestionService {
         } else {
             throw new Exception("Question not found for ID: " + questionId);
         }
-    }
+    }*/
 
 
 

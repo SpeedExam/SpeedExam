@@ -15,7 +15,7 @@ import java.util.*;
 @Service
 @RequiredArgsConstructor
 public class OptionService {
-    private final OptionRepository optionRepository;
+    /*private final OptionRepository optionRepository;
     private final QuestionRepository questionRepository;
 
     public Option getOptionById(Long id) {
@@ -57,5 +57,5 @@ public class OptionService {
             return question.getOptions();
         }
         return Collections.emptyList(); // Handle case where question is not found
-    }
+    }*/
 }
