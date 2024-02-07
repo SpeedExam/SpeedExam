@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="MavenProjectsManager">
@@ -35,7 +36,7 @@
     </option>
     <option name="myNotNulls">
       <value>
-        <list size="16">
+        <list size="17">
           <item index="0" class="java.lang.String" itemvalue="androidx.annotation.RecentlyNonNull" />
           <item index="1" class="java.lang.String" itemvalue="org.checkerframework.checker.nullness.qual.NonNull" />
           <item index="2" class="java.lang.String" itemvalue="jakarta.annotation.Nonnull" />
@@ -52,11 +53,12 @@
           <item index="13" class="java.lang.String" itemvalue="org.jetbrains.annotations.NotNull" />
           <item index="14" class="java.lang.String" itemvalue="javax.annotation.Nonnull" />
           <item index="15" class="java.lang.String" itemvalue="org.eclipse.jdt.annotation.NonNull" />
+          <item index="16" class="java.lang.String" itemvalue="jakarta.validation.constraints.NotNull" />
         </list>
       </value>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_20" default="true" project-jdk-name="openjdk-20" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="openjdk-20" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

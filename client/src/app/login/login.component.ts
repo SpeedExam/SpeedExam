@@ -38,9 +38,9 @@ export class LoginComponent implements OnInit{
     console.log(this.login_form.value);
     this.service.login(this.login_form.value).subscribe(
       (response)=> {
-        console.log(response);
+        console.log(response.ACCESS_TOKEN);
 
-        this.userhservice.setToken(response.token);
+        this.userhservice.setToken(response.ACCESS_TOKEN);
         this.userhservice.setRole(response.role);
         if (response.role=="PROFESSOR") {
           this.toast.success({detail: "Success message", summary: "Login is Success", duration: 5000});
