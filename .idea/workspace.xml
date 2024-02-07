@@ -5,16 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32286fe3-614d-4d3d-bd16-c03921e30db7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/client/db.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/interfaces/Test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/interfaces/question.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/modules/admin/prof/components/new-exam/new-exam.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/modules/admin/prof/components/new-exam/new-exam.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/modules/admin/prof/components/new-exam/new-exam.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/modules/admin/prof/components/new-exam/new-exam.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/modules/admin/prof/prof.module-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/modules/admin/prof/prof.module.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/services/profService/prof.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/services/profService/prof.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/modules/admin/admin-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/modules/admin/admin-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/modules/admin/admin.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/modules/admin/admin.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/modules/admin/components/admin-dashboards/admin-dashboards.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/modules/admin/components/admin-dashboards/admin-dashboards.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/modules/admin/components/user-profile/user-profile.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/modules/admin/components/user-profile/user-profile.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/modules/admin/components/user-profile/user-profile.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/modules/admin/components/user-profile/user-profile.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/SpeedExam/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/server/SpeedExam/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +54,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/DELL/Documents/GitHub/SpeedExam2/server/SpeedExam",
+    "last_opened_file_path": "C:/Users/msi/Desktop/ff2/client",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -58,9 +64,18 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "advanced.settings",
+    "ts.external.directory.path": "C:\\Users\\msi\\Desktop\\ff2\\client\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\msi\Desktop\ff2\client" />
+      <recent name="C:\Users\msi\Desktop\ff2\client\src\app\services" />
+      <recent name="C:\Users\msi\Desktop\ff2\client\src\app" />
+      <recent name="C:\Users\msi\Desktop\ff2\client\src\app\modules\admin" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="DemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
@@ -87,6 +102,7 @@
       <workItem from="1707055625769" duration="35000" />
       <workItem from="1707063804728" duration="32000" />
       <workItem from="1707073472980" duration="103000" />
+      <workItem from="1707337727126" duration="4558000" />
     </task>
     <servers />
   </component>
