@@ -19,9 +19,10 @@ public class Question {
 
     private String name;
 
-    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
-
-    private List<Option> options = new ArrayList<>();
+    @ElementCollection
+    @CollectionTable(name = "question_options", joinColumns = @JoinColumn(name = "question_id"))
+    @Column(name = "option")
+    private List<String> options;
 
     private int CorrectAns;
 
@@ -29,5 +30,7 @@ public class Question {
     @ManyToOne
     @JoinColumn(name = "exam_id")
     private Exam exam;
+
+    private int timing;
 
 }

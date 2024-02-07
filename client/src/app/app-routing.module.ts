@@ -13,7 +13,13 @@ const routes: Routes = [
   {path:'admin',loadChildren:()=>import("./modules/admin/admin.module").then((m)=>m.AdminModule),canActivate:[authGuardGuard],data: { role: 'professor' }},
   {path:'user',loadChildren:()=>import("./modules/user/user.module").then((m)=>m.UserModule),canActivate:[authGuardGuard],data: { role: 'student' }},
   {path:'',redirectTo:'home',pathMatch:"full"},
-  {path:'**',component:NotFoundComponent}
+  {
+    path : "prof",
+    loadChildren : () =>
+      import("./modules/admin/prof/prof.module.module").then((m)=>m.ProfModuleModule)
+  },
+  {path:'**',component:NotFoundComponent},
+
 ];
 
 @NgModule({

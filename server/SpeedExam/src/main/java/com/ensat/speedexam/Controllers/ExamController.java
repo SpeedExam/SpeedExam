@@ -18,6 +18,12 @@ public class ExamController {
 
 
     // Endpoint to create a new exam
+    @PostMapping("/create")
+    public ResponseEntity<Exam> createdExam(@RequestBody Exam exam) {
+        Exam createdExam = examService.createExam(exam);
+        return new ResponseEntity<>(createdExam, HttpStatus.CREATED);
+    }
+
     @PostMapping("/add")
     public ResponseEntity<Exam> createExam(@RequestBody Exam exam) {
         Exam createdExam = examService.createExam(exam);

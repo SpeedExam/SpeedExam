@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
-import {HttpClientModule, withFetch} from "@angular/common/http";
+import {HttpClient, HttpClientModule, withFetch} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { RegisterComponent } from './register/register.component';
 import { HeroComponent } from './hero/hero.component';
@@ -18,6 +18,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 import {NgToastModule} from "ng-angular-popup";
 import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from "@angular/material/input";
+import {MatRadioModule} from "@angular/material/radio";
+import {NewExamComponent} from "./modules/admin/prof/components/new-exam/new-exam.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +33,8 @@ import {MatIconModule} from '@angular/material/icon';
     TeamComponent,
     NotFoundComponent,
     HomeComponent,
+
+
   ],
   imports: [
     BrowserModule,
@@ -42,10 +47,16 @@ import {MatIconModule} from '@angular/material/icon';
     NgToastModule,
     BrowserAnimationsModule,
     MatIconModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatRadioModule,
+    HttpClientModule,
+    ReactiveFormsModule,
 
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    HttpClient
   ],
   exports: [
 
