@@ -16,9 +16,6 @@ public class Option {
     @Column(nullable = false)
     private Boolean isCorrect;
 
-    @ManyToOne
-    @JoinColumn(name = "question_id")
-    private Question question;
 
     public void setCorrect(Boolean correct) {
         isCorrect = correct;

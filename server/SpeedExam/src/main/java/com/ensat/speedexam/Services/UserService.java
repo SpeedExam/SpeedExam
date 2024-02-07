@@ -9,6 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.security.Principal;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -31,6 +32,13 @@ public class UserService {
         user.setPassword(passwordEncoder.encode(request.getConfirmationPassword()));
         userRepository.save(user);
     }
+    public User getUserById(int personId) throws Exception {
+        Optional<User> OptionalPerson =userRepository.findById(personId);
+        if (OptionalPerson.isPresent()) {
+            return OptionalPerson.get();
+        } else {
+            throw new Exception("Exam not found for ID: " + personId);
+        }    }
 
 }
 

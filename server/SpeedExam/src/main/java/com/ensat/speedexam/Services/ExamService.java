@@ -3,12 +3,14 @@ package com.ensat.speedexam.Services;
 import com.ensat.speedexam.Entites.Exam;
 import com.ensat.speedexam.Entites.Question;
 
+import com.ensat.speedexam.Entites.User;
 import com.ensat.speedexam.Repositories.ExamRepository;
 import com.ensat.speedexam.Repositories.QuestionRepository;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,6 +22,7 @@ public class ExamService {
 
 
     public Exam createExam(Exam exam){
+        exam.setPassed(false);
         examRepository.save(exam);
         return exam;
     }
@@ -29,6 +32,25 @@ public class ExamService {
         return examRepository.findAll();
     }
 
+    public List<Exam> getExamByUserId(User user) {
+        return examRepository.findAllByUser(user);
+    }
+    public List<Exam> getPassedExamByUserId(User user) {
+        List<Exam> allExams =  examRepository.findAllByUser(user);
+        List<Exam> passedExams = new ArrayList<>();
+        for (Exam e:allExams){
+            if (e.isPassed()) passedExams.add(e);
+        }
+        return passedExams;
+    }
+    public List<Exam> getNonPassedExamByUserId(User user) {
+        List<Exam> allExams =  examRepository.findAllByUser(user);
+        List<Exam> nonPassedExams = new ArrayList<>();
+        for (Exam e:allExams){
+            if (!e.isPassed()) nonPassedExams.add(e);
+        }
+        return nonPassedExams;
+    }
     public Exam getExamById(Long id)throws Exception {
         Optional<Exam> optionalExam = examRepository.findById(id);
         if (optionalExam.isPresent()) {
@@ -37,6 +59,8 @@ public class ExamService {
             throw new Exception("Exam not found for ID: " + id);
         }
     }
+
+
     public Exam updateExam(Long id, Exam updatedExam)throws Exception {
         Optional<Exam> optionalExam = examRepository.findById(id);
         if (optionalExam.isPresent()) {
@@ -73,6 +97,7 @@ public class ExamService {
         Exam exam = examRepository.findById(examId).orElse(null);
         if (exam != null) {
             exam.setNote(Note);
+            exam.setPassed(true);
             examRepository.save(exam);
             return exam;
         } else {
