@@ -1,0 +1,18 @@
+<div class="examBox">
+  <div class="examhead text-center"><h2> {{Exam.TestName}} TEST </h2></div>
+  <div class="quizBox" *ngFor="let item of Exam.Quest,let index =index">
+    <strong><span class="text-danger">{{item.question}}</span> </strong>
+    <div class="row"  *ngFor="let ans of item.answers">
+      <div class="col-sm-12">
+        {{ans}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <span class="text-success">   {{item.answers[item.correctAns]}}</span>
+      </div>
+    </div>
+
+    <hr>
+  </div>
+</div>

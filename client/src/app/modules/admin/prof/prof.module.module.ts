@@ -12,6 +12,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ToastrModule, ToastrService} from 'ngx-toastr';
 import {NgToastModule} from "ng-angular-popup";
+import {SubjectsComponent} from "./components/subjects/subjects.component";
+import {ExamComponent} from "./components/exam/exam.component";
 
 
 
@@ -20,6 +22,8 @@ import {NgToastModule} from "ng-angular-popup";
 @NgModule({
   declarations: [
     NewExamComponent,
+    SubjectsComponent,
+    ExamComponent
 
   ],
   imports: [

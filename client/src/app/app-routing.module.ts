@@ -5,6 +5,8 @@ import {RegisterComponent} from "./register/register.component";
 import {HomeComponent} from "./home/home.component";
 import {NotFoundComponent} from "./not-found/not-found.component";
 import {authGuardGuard} from "./Guards/auth-guard.guard";
+import {SubjectsComponent} from "./modules/admin/prof/components/subjects/subjects.component";
+import {ExamComponent} from "./modules/admin/prof/components/exam/exam.component";
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
@@ -18,6 +20,8 @@ const routes: Routes = [
     loadChildren : () =>
       import("./modules/admin/prof/prof.module.module").then((m)=>m.ProfModuleModule)
   },
+  {path:'Tests',component:SubjectsComponent},
+  {path:'exam/:id',component: ExamComponent},
   {path:'**',component:NotFoundComponent},
 
 ];

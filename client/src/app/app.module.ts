@@ -21,6 +21,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from "@angular/material/input";
 import {MatRadioModule} from "@angular/material/radio";
 import {NewExamComponent} from "./modules/admin/prof/components/new-exam/new-exam.component";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +53,7 @@ import {NewExamComponent} from "./modules/admin/prof/components/new-exam/new-exa
     MatRadioModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgbModule,
 
   ],
   providers: [
