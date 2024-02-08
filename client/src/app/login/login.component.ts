@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit{
     this.service.login(this.login_form.value).subscribe(
       (response)=> {
         console.log(response.ACCESS_TOKEN);
-
+        this.userhservice.setId(response.userID);
         this.userhservice.setToken(response.ACCESS_TOKEN);
         this.userhservice.setRole(response.role);
         if (response.role=="PROFESSOR") {

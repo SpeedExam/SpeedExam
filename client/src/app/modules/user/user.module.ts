@@ -16,6 +16,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { SettingsComponent } from './components/settings/settings.component';
 import { ResultsComponent } from './components/results/results.component';
 import { SublevelMenuComponent } from './components/side-nav/sublevel.component';
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { SublevelMenuComponent } from './components/side-nav/sublevel.component'
     MatRadioModule,
     MatButtonModule,
     MatCommonModule,
+    MatCardModule
   ]
 })
 export class UserModule { }

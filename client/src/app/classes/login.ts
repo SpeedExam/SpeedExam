@@ -16,4 +16,5 @@ export interface Register{
 export interface LoginResponse{
   ACCESS_TOKEN:string ;
   role:string,
+  userID:number
 }

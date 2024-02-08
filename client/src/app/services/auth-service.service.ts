@@ -18,6 +18,16 @@ export class AuthServiceService {
   getToken(): string | null{
     return localStorage.getItem("token");
   }
+  getId():string{
+    const id = localStorage.getItem("userID");
+    if(id)
+    return id;
+    else
+    return "0";
+  }
+  setId(id:number){
+    localStorage.setItem("userID",id.toString());
+  }
   isLogged():boolean{
     if(this.getToken()!=null && this.getRole()!=null){
       return true;
