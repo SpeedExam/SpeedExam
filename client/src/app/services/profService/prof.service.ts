@@ -17,5 +17,14 @@ export class ProfService {
   updateExam(T:Test,id : number){
     return this.htpp.put(this.URL.concat("/Test/"+id),T);
   }
+  getallExams(){
+    return this.htpp.get(this.URL.concat("/Test"));
+  }
+  deleteSubject(id:number){
+    return this.htpp.delete(this.URL.concat("/Test/"+id));
+  }
+  getExam(id : number){
+    return this.htpp.get(this.URL.concat("/Test/"+id));
+  }
 
 }
