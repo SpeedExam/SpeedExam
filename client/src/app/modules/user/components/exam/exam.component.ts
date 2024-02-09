@@ -1,15 +1,29 @@
-import { Option, Question } from './../../classes/user';
-import { Component } from '@angular/core';
+import { ActivatedRoute, Route } from '@angular/router';
+import { Option, Question, Exam } from './../../classes/user';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-exam',
   templateUrl: './exam.component.html',
   styleUrl: './exam.component.scss'
 })
-export class ExamComponent {
+export class ExamComponent implements OnInit {
+
+  constructor(private user:UserService,private router: Router,private route:ActivatedRoute) {}
+
+  ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.user.getExam(`${id}`).subscribe((data: any) => {
+      console.log(data);
+    });
+  }
+
+
+
   timer: any={
-    duration: 10,
+    duration: 1,
     minutes: 0,
     seconds: 0
   };
@@ -75,7 +89,6 @@ export class ExamComponent {
   ];
   responses: { questionid: number; answer: number }[] = [];
 
-  constructor(private router: Router) { }
 
   start():void {
     this.startTimer();
@@ -103,10 +116,16 @@ export class ExamComponent {
     return confirmationMessage;
 }
 nextQuestion() {
+  if(this.currentQuestionIndex < this.questions.length) {
   this.correctQuestion();
   this.answered = false;
   this.currentQuestionIndex++;
+  this.restartTimer();
   this.showCurrentQuestion();
+  }
+  else {
+    this.completeExam();
+  }
 }
 
 showCurrentQuestion() {
@@ -134,9 +153,15 @@ startTimer() {
 
     if (--this.timer.duration < 0) {
       clearInterval(this.timer.interval);
-      this.completeExam();
+      this.nextQuestion();
     }
   }, 1000);
+}
+
+restartTimer() {
+  this.timer.duration = 1;
+  clearInterval(this.timer.interval);
+  this.startTimer();
 }
 
 
