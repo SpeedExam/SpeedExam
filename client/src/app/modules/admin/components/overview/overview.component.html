@@ -10,7 +10,38 @@
       </button>
     </div>
   </div>
-  <div class="flex flex-1 flex-col h-full items-center  pt-7 px-4 ">
+
+  <div *ngIf="empty" class="subjectBox flex flex col-auto ">
+    <div class="row flex flex-1 w-screen">
+      <div class="col-md-3 col-sm-12" *ngFor="let item of subjects;let index=index" routerLink="/exam/{{item.id}}">
+        <div class="namesubject">
+          <div>{{item.TestName}}</div>
+        </div>
+        <div class="subBtn flex  justify-center">
+          <button mat-raised-button color="primary"  class="mx-1" >display</button>
+          <button mat-raised-button color="warn"  class="mx-1" (click)="delete(index)">delete</button>
+
+
+        </div>
+      </div>
+    </div>
+    <div class="subjectBox flex flex col-auto invisible">
+      <div class="row flex flex-1 w-screen">
+        <div class="col-md-3 col-sm-12" *ngFor="let item of subjects;let index=index" routerLink="/exam/{{item.id}}">
+          <div class="namesubject">
+            <div>{{item.TestName}}</div>
+          </div>
+          <div class="subBtn flex  justify-center">
+            <button mat-raised-button color="primary"  class="mx-1" >display</button>
+            <button mat-raised-button color="warn"  class="mx-1" (click)="delete(index)">delete</button>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!empty" class="flex flex-1 flex-col h-full items-center  pt-7 px-4 ">
     <div class="flex flex-1 pt-7 h-full ">
       <img src="assets/dash.jpg" class="h-[100%] pt-7">
     </div>
@@ -27,6 +58,8 @@
       </button>
 
     </div>
+
   </div>
 </div>
+
 

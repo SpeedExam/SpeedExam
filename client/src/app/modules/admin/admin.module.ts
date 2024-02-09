@@ -15,6 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 // import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import {FormsModule} from "@angular/forms";
+import {MatButton} from "@angular/material/button";
 
 
 @NgModule({
@@ -33,11 +34,12 @@ import {FormsModule} from "@angular/forms";
   exports: [
     SidebarComponent
   ],
-    imports: [
-        CommonModule,
-        AdminRoutingModule,
-        MatIconModule,
-        FormsModule
-    ]
+  imports: [
+    CommonModule,
+    AdminRoutingModule,
+    MatIconModule,
+    FormsModule,
+    MatButton
+  ]
 })
 export class AdminModule { }

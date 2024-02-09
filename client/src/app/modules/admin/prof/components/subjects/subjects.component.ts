@@ -13,6 +13,7 @@ export class SubjectsComponent implements OnInit {
   }
   subjects:any[]=[];
 
+
   ngOnInit(): void {
     this.getsSubjects();
   }
