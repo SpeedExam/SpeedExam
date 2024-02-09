@@ -13,38 +13,5 @@
     "password": 123,
     "id": 1
   },
-  "Test": [
-    {
-      "id": "c16d",
-      "TestName": "oked",
-      "Quest": [
-        {
-          "correctAns": "0",
-          "question": "dlazkd",
-          "answers": [
-            "dazld",
-            "azdl"
-          ],
-          "timing": 12
-        }
-      ]
-    },
-    {
-      "id": "1dac",
-      "TestName": "GVRFDC",
-      "Quest": [
-        {
-          "correctAns": "3",
-          "question": "GRVFDCX",
-          "answers": [
-            "BVRFC",
-            "RVF",
-            "RBGFV",
-            "RBGFD"
-          ],
-          "timing": 2
-        }
-      ]
-    }
-  ]
+  "Test": []
 }
