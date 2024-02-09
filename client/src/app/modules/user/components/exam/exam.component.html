@@ -16,7 +16,7 @@
     </mat-radio-group>
   </div>
 
-    <div class="flex justify-between pt-4">
+    <div class="flex justify-between">
     <div class="text-bold text-lg flex items-center">{{this.timer.minutes}}:{{this.timer.seconds}}</div>
     <div>
     <button mat-fab color="primary" (click)="nextQuestion()" *ngIf="currentQuestionIndex < questions.length - 1">

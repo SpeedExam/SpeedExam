@@ -23,7 +23,7 @@ export class ExamComponent implements OnInit {
 
 
   timer: any={
-    duration: 1,
+    duration: 10,
     minutes: 0,
     seconds: 0
   };
@@ -159,7 +159,7 @@ startTimer() {
 }
 
 restartTimer() {
-  this.timer.duration = 1;
+  this.timer.duration = 10;
   clearInterval(this.timer.interval);
   this.startTimer();
 }

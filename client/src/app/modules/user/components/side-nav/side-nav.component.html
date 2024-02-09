@@ -2,8 +2,8 @@
   <div class="logo-container">
       <button class="logo text-blue-500" (click)="toggleCollapse()">Ex</button>
       <div class="logo-text" @fadeInOut *ngIf="collapsed">Speed<span class="text-blue-500">Exam</span></div>
-      <button class="btn-close" @rotate *ngIf="collapsed" (click)="closeSidenav()">
-          <mat-icon style="color: white;">arrow_back</mat-icon>
+      <button class="btn-closed" @rotate *ngIf="collapsed" (click)="closeSidenav()">
+        <mat-icon style="color: white;">arrow_back</mat-icon>
       </button>
   </div>
   <div class="scrollwrap scrollwrap_delayed">
